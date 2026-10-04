@@ -1,0 +1,6 @@
+[terminal]
+vt = 1
+
+[default_session]
+command = "tuigreet --remember --time --greeting 'AUTHORIZED ACCESS ONLY · Unauthorized use will be prosecuted' --cmd start-hyprland"
+user = "greeter"

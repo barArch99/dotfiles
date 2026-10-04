@@ -1,0 +1,123 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 34,
+  "spacing": 0,
+  "margin-top": 8,
+  "margin-left": 14,
+  "margin-right": 14,
+  "modules-left": [
+    "custom/arch",
+    "hyprland/workspaces",
+    "cpu",
+    "memory",
+    "temperature"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "tray",
+    "custom/vpn",
+    "network",
+    "pulseaudio",
+    "backlight",
+    "battery",
+    "custom/power"
+  ],
+  "custom/arch": {
+    "format": "\uf303",
+    "tooltip-format": "Aplicaciones",
+    "on-click": "wofi --show drun"
+  },
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
+    "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'"
+  },
+  "cpu": {
+    "format": "\uf2db  {usage}%",
+    "interval": 3,
+    "on-click": "kitty -e top"
+  },
+  "memory": {
+    "format": "\udb80\udf5b  {percentage}%",
+    "interval": 5,
+    "tooltip-format": "{used:0.1f} GiB / {total:0.1f} GiB",
+    "on-click": "kitty -e top"
+  },
+  "temperature": {
+    "format": "\uf2c9 {temperatureC}\u00b0C",
+    "critical-threshold": 85,
+    "interval": 5
+  },
+  "clock": {
+    "format": "\uf073  {:%d/%m/%Y  \uf017  %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "month",
+      "format": {
+        "today": "<span color='#00bfff'><b>{}</b></span>"
+      }
+    }
+  },
+  "tray": {
+    "spacing": 10,
+    "icon-size": 16
+  },
+  "custom/vpn": {
+    "exec": "~/.config/waybar/vpn.sh",
+    "return-type": "json",
+    "interval": 5,
+    "format": "{}",
+    "on-click": "ip -4 -o addr show tun0 | awk '{print $4}' | cut -d/ -f1 | tr -d '\\n' | wl-copy && notify-send 'IP de VPN copiada'"
+  },
+  "network": {
+    "format-wifi": "\uf1eb  {essid}",
+    "format-ethernet": "\udb80\ude00  {ipaddr}",
+    "format-disconnected": "\udb81\uddaa  offline",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}\n\uf063 {bandwidthDownBytes}  \uf062 {bandwidthUpBytes}",
+    "format-alt": "\udb82\ude5f  {ipaddr}/{cidr}",
+    "interval": 5
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "\udb81\udd81  mute",
+    "format-icons": {
+      "default": [
+        "\uf026",
+        "\uf027",
+        "\uf028"
+      ]
+    },
+    "on-click": "pamixer --toggle-mute",
+    "scroll-step": 5
+  },
+  "backlight": {
+    "format": "\udb80\udcdf  {percent}%",
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-"
+  },
+  "battery": {
+    "format": "{icon}  {capacity}%",
+    "format-charging": "\uf0e7  {capacity}%",
+    "format-plugged": "\uf1e6  {capacity}%",
+    "format-icons": [
+      "\uf244",
+      "\uf243",
+      "\uf242",
+      "\uf241",
+      "\uf240"
+    ],
+    "states": {
+      "warning": 25,
+      "critical": 12
+    },
+    "tooltip-format": "{timeTo}"
+  },
+  "custom/power": {
+    "format": "\uf011",
+    "tooltip-format": "Energ\u00eda",
+    "on-click": "~/.config/waybar/power.sh"
+  }
+}

@@ -1,0 +1,104 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Dos líneas: arriba el contexto, abajo donde escribes
+format = """
+[╭─](bold blue)$os$username$hostname$directory$git_branch$git_status$python$nodejs$rust$golang$docker_context
+[╰─](bold blue)$character"""
+
+# A la derecha: resultado del comando ANTERIOR (código de error, duración, hora)
+right_format = """$status$cmd_duration$time"""
+
+add_newline = true
+
+[os]
+disabled = false
+style = "bold cyan"
+
+[os.symbols]
+Arch = "\U000F08C7 "
+
+[username]
+show_always = true
+format = "[$user]($style)"
+style_user = "bold cyan"
+style_root = "bold red"
+
+[hostname]
+ssh_only = false
+format = "[@$hostname]($style) "
+style = "bold blue"
+
+[directory]
+format = "[\uf07c $path]($style)[$read_only]($read_only_style) "
+style = "bold yellow"
+read_only = " 🔒"
+truncation_length = 3
+truncate_to_repo = true
+
+[directory.substitutions]
+"Documents" = "\U000F0219 Documents"
+"Downloads" = "\uf019 Downloads"
+"Pictures" = "\uf03e Pictures"
+"Music" = "\uf001 Music"
+
+# ✔ verde si el comando anterior salió bien, ✘ rojo si falló
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+[status]
+disabled = false
+format = "[$symbol $status]($style) "
+symbol = "✘"
+not_found_symbol = "🔍"
+not_executable_symbol = "🚫"
+sigint_symbol = "🧱"
+signal_symbol = "⚡"
+style = "bold red"
+map_symbol = true
+
+[cmd_duration]
+min_time = 2000
+format = "[⏱ $duration]($style) "
+style = "yellow"
+
+[time]
+disabled = false
+format = "[🕒 $time]($style)"
+time_format = "%H:%M"
+style = "dimmed white"
+
+[git_branch]
+symbol = " "
+format = "[$symbol$branch]($style) "
+style = "bold purple"
+
+[git_status]
+format = "[$all_status$ahead_behind]($style) "
+style = "bold red"
+modified = "📝"
+untracked = "🆕"
+staged = "✅"
+deleted = "🗑 "
+ahead = "⬆ "
+behind = "⬇ "
+
+[python]
+symbol = "🐍 "
+format = "[$symbol$version( \\($virtualenv\\))]($style) "
+
+[nodejs]
+symbol = "⬢ "
+format = "[$symbol$version]($style) "
+
+[rust]
+symbol = "🦀 "
+format = "[$symbol$version]($style) "
+
+[golang]
+symbol = "🐹 "
+format = "[$symbol$version]($style) "
+
+[docker_context]
+symbol = "🐳 "
+format = "[$symbol$context]($style) "
