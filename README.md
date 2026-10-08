@@ -15,7 +15,7 @@ Sirve para dejar otra máquina igual que esta.
 | `home/` | `.zshrc`, `.bashrc`, `.bash_profile` |
 | `wallpaper/` | Fondo de pantalla |
 | `packages/` | `pkglist-escritorio.txt` (lo necesario para el escritorio) y `pkglist-completa.txt` (todo lo instalado, incluye herramientas de BlackArch) |
-| `system/` | `greetd-config.toml`, la pantalla de inicio de sesión (referencia, se copia a mano) |
+| `system/` | Pantalla de inicio de sesión (greetd + tuigreet): banner BLACKARCH, `greetd-greeter.sh` y `instalar-login.sh` |
 
 ## Restaurar en una máquina nueva
 
@@ -41,8 +41,8 @@ que añadir antes el repo de BlackArch y luego:
 
 ### Pasos a mano
 
-- **Inicio de sesión (greetd):** `sudo pacman -S greetd greetd-tuigreet`, copiar
-  `system/greetd-config.toml` a `/etc/greetd/config.toml` y `sudo systemctl enable greetd`.
+- **Inicio de sesión (greetd):** `sudo pacman -S greetd greetd-tuigreet`,
+  `sudo ./system/instalar-login.sh` y `sudo systemctl enable greetd`.
 - **Gráfica:** `hyprland.lua` trae dos variables para NVIDIA al final
   (`LIBVA_DRIVER_NAME`, `__GLX_VENDOR_LIBRARY_NAME`). En una máquina sin NVIDIA, borrarlas.
   Los drivers (`nvidia-open`, `nvidia-utils`) solo están en la lista completa.

@@ -251,9 +251,11 @@ hl.gesture({
 
 -- Example per-device config
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
+-- Logitech G203: 1:1 como Windows (6/11, sin "mejorar precisión del puntero")
 hl.device({
-    name        = "epic-mouse-v1",
-    sensitivity = -0.5,
+    name          = "logitech-g203-lightsync-gaming-mouse",
+    sensitivity   = 0,
+    accel_profile = "flat",
 })
 
 

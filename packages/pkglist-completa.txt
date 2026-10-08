@@ -31,6 +31,8 @@ hyprpolkitagent
 intel-ucode
 john
 kitty
+lib32-nvidia-utils
+lib32-vulkan-intel
 linux
 linux-firmware
 linux-headers
@@ -48,6 +50,7 @@ nodejs
 noto-fonts-emoji
 npm
 nvidia-open
+nvidia-prime
 nvidia-settings
 nvidia-utils
 openbsd-netcat
@@ -64,17 +67,21 @@ slurp
 smbclient
 sqlmap
 starship
+steam
 sudo
 swaybg
 tcpdump
+terminus-font
 thunar
 ttf-jetbrains-mono-nerd
+ttf-liberation
 unrar
 unzip
 uv
 virtualbox
 virtualbox-guest-iso
 virtualbox-host-dkms
+vulkan-intel
 waybar
 whatweb
 which
@@ -84,6 +91,7 @@ wireshark-qt
 wl-clipboard
 wofi
 xdg-desktop-portal-hyprland
+zip
 zoxide
 zsh
 zsh-autosuggestions
