@@ -2,9 +2,13 @@
 aircrack-ng
 amd-ucode
 base
+base-devel
 bat
 blackarch-mirrorlist
 blackarch-wallpaper
+blueman
+bluez
+bluez-utils
 brightnessctl
 burpsuite
 code
@@ -38,6 +42,7 @@ linux-firmware
 linux-headers
 mako
 maltego
+man-db
 metafinder
 metagoofil
 metasploit
@@ -62,6 +67,7 @@ perl-image-exiftool
 pipewire
 pipewire-pulse
 recon-ng
+redis
 seclists
 slurp
 smbclient
@@ -91,6 +97,8 @@ wireshark-qt
 wl-clipboard
 wofi
 xdg-desktop-portal-hyprland
+xorg-xhost
+yay
 zip
 zoxide
 zsh
